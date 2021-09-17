@@ -1,0 +1,424 @@
+/*
+
+ .----------------.  .----------------.  .----------------.  .-----------------. .----------------. 
+| .--------------. || .--------------. || .--------------. || .--------------. || .--------------. |
+| |   ______     | || |  ____  ____  | || |    _______   | || | ____  _____  | || |    _______   | |
+| |  |_   _ \    | || | |_  _||_  _| | || |   /  ___  |  | || ||_   \|_   _| | || |   /  ___  |  | |
+| |    | |_) |   | || |   \ \  / /   | || |  |  (__ \_|  | || |  |   \ | |   | || |  |  (__ \_|  | |
+| |    |  __'.   | || |    \ \/ /    | || |   '.___`-.   | || |  | |\ \| |   | || |   '.___`-.   | |
+| |   _| |__) |  | || |    _|  |_    | || |  |`\____) |  | || | _| |_\   |_  | || |  |`\____) |  | |
+| |  |_______/   | || |   |______|   | || |  |_______.'  | || ||_____|\____| | || |  |_______.'  | |
+| |              | || |              | || |              | || |              | || |              | |
+| '--------------' || '--------------' || '--------------' || '--------------' || '--------------' |
+ '----------------'  '----------------'  '----------------'  '----------------'  '----------------' 
+
+Kode påbegyndt: 24.8.2021. Kodet på RTS.
+
+med kommentarer kan man udkommentere kode til a/b-test
+*/
+
+
+/*vi resetter marg og padding*/
+
+html, body {
+    margin: 0;
+    padding: 0;
+    /*vi vælger overordnet font*/
+    font-family: 'roboto', sans-serif;
+}
+
+/* vi vælger alle elementer og ænder den måde padding og borders opfører sig på. God idé at gøre dette på alle stylesheets*/
+* {
+    box-sizing: border-box;
+}
+
+/* vi sikrer m 100% at billedet ikke kan blive større end deres parant-element */
+img {
+    /* maksimalt tilladt bredde*/
+    max-width: 100%;
+}
+
+
+
+
+
+
+
+/* vi sætter gnmsigtig farve på header og footer. Vi gir elemneterne luft*/
+.page-header, .page-content, .page-footer {
+    background-color: #ffffff;
+    padding: 15px;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/*typografi og farver*/
+
+
+
+
+
+/* Roboto loader fra google fonts. sans-serfif er fallback/reserve */
+h1, h2, h3, .page-header, .logo, .sub-logo {
+    font-family: 'roboto', sans-serif;
+    text-transform: lowercase;
+}
+
+
+.page-header{
+    position: sticky;
+    top: 0;
+   
+}
+
+.page-header a {
+    text-decoration: none;
+    color: #111111;
+}
+    
+
+.page-header .flex-desktop{
+    align-items: center;
+}
+
+.logo{
+    color: #111111;
+    font-size: 250%;
+    text-align: right;
+}
+
+
+.sub-logo{
+    color: #8507E8;
+    font-size: 250%;
+    text-align: right;    
+}
+
+.sub-logo a:hover{
+   color: #111111; 
+}
+
+h1 {
+    color:#08460E;
+    font-size: 200%;
+    font-weight: lighter;
+}
+
+h2{
+    color:#8507E8;
+    font-size: 150%;
+    font-weight: lighter;
+}
+
+h3{
+    color: #08460E;
+    font-size: 130%;
+}
+
+.page-header .purple{
+    color:#8507E8;
+}
+
+
+
+.image-block{
+    padding-top: 20px;
+}
+
+.left-block{
+    padding-top: 10px;
+}
+
+.textblock{
+    color: #111111;
+    padding-bottom: 15px;
+}
+
+.footer-section{
+    color: #111111;
+}
+
+
+
+
+
+/* MENU-REGLER */
+/* vi tildeler baggrundsfarve og lader menuen kaste skygge nedad*/
+
+/* vi skjuler checkboxen til menu-drop-down/ checkbox hack */
+.menu-check{
+    display: none;
+}
+
+.menu {
+    background-color: #ffffff;
+}
+
+/* dete er vores liste til menupkter.
+Vi resetter margin og fjerner bullets*/
+.menu ul {
+    margin: 0;
+    padding: 10px;
+    list-style: none;
+}
+
+/* selve link i menuen (a-tags)*/
+.menu-item {
+    /*tekstfarve*/
+    color: #111111;
+    /*google-fonts*/
+    font-family: 'roboto', sans-serif;
+   
+    /* resetter visningen så understregninger fjernes. gør man dette, bør man style links på anden vis, så et bliver tydeligt at de er links*/
+    text-decoration: none;
+    /*links i hver sin blok, dvs ovenpå hinanden*/
+    display: block;
+    /*luft i top og bund på hvert link*/
+    padding-top: 5px;
+    padding-bottom: 5px;
+    /*vi begrænser link-bredden*/
+    max-width: 200px;
+}
+
+.menu-item:hover{
+    color: #8507E8;
+}
+
+.submenu-parent{
+    position: relative;
+}
+
+.submenu-parent:hover .submenu{
+    display: block;
+}
+
+.submenu{
+    position: absolute;
+    top: 16px;
+    left: 0;
+    background: rgb(196, 196, 196);
+    display: none;
+}
+
+.submenu li{
+    display: block;
+}
+
+.submenu li a{
+    border: none;
+}
+/* Menu-regler slutter her */
+
+.modal-link{
+    text-decoration: none;
+    color: #111111;
+}
+
+.textblock a{
+    text-decoration: none;
+    color: #111111;
+}
+
+.textblock a:hover{
+    color: #8507E8;
+}
+
+.image-block a:hover{
+    color: #8507E8;
+}
+
+.ptag-w-logo{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.some-link{
+    max-width: 10%;
+}
+
+.some-logo{
+    max-width: 70%;
+}
+
+.footer-paragraph a:hover{
+    color: #8507E8;
+}
+
+/*---Regler for modal-elementer begynder her---*/
+
+.modal-outer{
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(26, 13, 27, 0.75);
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.6s;
+    pointer-events: none;
+}
+
+.open{
+    opacity: 1;
+    pointer-events: all;
+}
+
+.modal-inner{
+    position: relative;
+    transform: scale(0.3);
+    transition: transform 0.6s;
+}
+
+.open .modal-inner{
+    transform: scale(1);
+}
+
+.close-modal{
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.modal-content{
+    background: #111111;
+    color: #eeeeee;
+    padding: 15px;
+    max-width: 500px;
+}
+
+.hidden{
+    display: none;
+}
+
+/* modal-elementer slut*/
+
+/* SIDENS FOOTER*/
+.page-footer {
+    /*tekstfarve */
+    color: #111111;
+}
+
+.footer-paragraph a{
+    text-decoration: none;
+    color: #111111;
+}
+/*FOOTER SLUT*/
+
+/* 
+---------------------------------------------
+DESKTOP ONLY - TILFØJELSER OG OVERSKRIVNINGER
+---------------------------------------------
+*/
+
+
+@media screen and (min-width: 800px) {
+    /* vi overskriver margin-left og right for at centrere elementet*/
+   
+
+
+    /*MENU*/
+    /* vi skjuler burgerikonet*/
+    .menu-check-label{
+        display: none;
+    }
+   
+    .top-level-menu{
+        display: flex;
+        justify-content: left;
+        padding: 0;
+        align-items: baseline;
+    }
+
+    /* menulinks får luft og kanter til venstre*/
+    .menu-item{
+        padding-bottom: 5px;
+        padding-left: 10px;
+        padding-right: 10px;
+        max-width: 300px;
+        border-right: 1px solid #000000;
+    }
+    
+    .submenu-parent{
+        padding-bottom: 5px;
+        padding-left: 10px;
+        padding-right: 10px;
+        max-width: 300px;
+        border-right: 1px solid #000000;
+    }
+
+    /* sidste menupunkt får også kant til højre*/
+
+    li:last-of-type .menu-item{
+        border: none;
+    }
+
+    /* MENU SLUT*/
+
+    .flex-desktop{
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .logo{
+        color: #111111;
+        font-size: 400%;
+        text-align: right;
+    }
+    
+    .sub-logo{
+        color: #8507E8;
+        font-size: 400%;
+        text-align: right;
+    }
+
+    .right-block{
+        text-align: right;
+        width: 100%
+    }
+
+    .left-block{
+        text-align: left;
+        width: 60%;
+    }
+
+    .grid-block{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+    }
+
+    .page-footer{
+        display: flex;
+        justify-content: space-between;
+    }
+
+
+
+
+}
+
+/*BURGERMENU*/
+
+@media screen and (max-width: 799px) {
+    
+    .menu-check-label{
+        display: inline-block;
+        padding: 10px;
+    }
+    
+    .top-level-menu{
+      display: none;  
+    }
+    /*adjacent sibling selector*/
+   .menu-check:checked + ul{
+       display: block;
+   }
+
+
+}
